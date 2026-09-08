@@ -83,10 +83,10 @@ pipeline {
                     cat $KUBECONFIG > ~/.kube/config
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30001 --set imagePullSecrets=null --namespace dev
+                      --set service.nodePort=30011 --set imagePullSecrets=null --namespace dev
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30002 --set imagePullSecrets=null --namespace dev
+                      --set service.nodePort=30012 --set imagePullSecrets=null --namespace dev
                     '''
                 }
             }
@@ -101,10 +101,10 @@ pipeline {
                     cat $KUBECONFIG > ~/.kube/config
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30003 --set imagePullSecrets=null --namespace qa
+                      --set service.nodePort=30013 --set imagePullSecrets=null --namespace qa
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30004 --set imagePullSecrets=null --namespace qa
+                      --set service.nodePort=30014 --set imagePullSecrets=null --namespace qa
                     '''
                 }
             }
@@ -119,10 +119,10 @@ pipeline {
                     cat $KUBECONFIG > ~/.kube/config
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30005 --set imagePullSecrets=null --namespace staging
+                      --set service.nodePort=30015 --set imagePullSecrets=null --namespace staging
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30006 --set imagePullSecrets=null --namespace staging
+                      --set service.nodePort=30016 --set imagePullSecrets=null --namespace staging
                     '''
                 }
             }
@@ -143,10 +143,10 @@ pipeline {
                     cat $KUBECONFIG > ~/.kube/config
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30007 --set imagePullSecrets=null --namespace prod
+                      --set service.nodePort=30017 --set imagePullSecrets=null --namespace prod
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
-                      --set service.nodePort=30008 --set imagePullSecrets=null --namespace prod
+                      --set service.nodePort=30018 --set imagePullSecrets=null --namespace prod
                     '''
                 }
             }
