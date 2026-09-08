@@ -85,6 +85,7 @@ pipeline {
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30011 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/casts/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://cast_db_username:cast_db_password@cast-db/cast_db_dev"}]' \
@@ -93,6 +94,7 @@ pipeline {
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30012 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/movies/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://movie_db_username:movie_db_password@movie-db/movie_db_dev"},{"name":"CAST_SERVICE_HOST_URL","value":"http://cast-service-fastapiapp/api/v1/casts/"}]' \
@@ -113,6 +115,7 @@ pipeline {
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30013 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/casts/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://cast_db_username:cast_db_password@cast-db/cast_db_dev"}]' \
@@ -121,6 +124,7 @@ pipeline {
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30014 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/movies/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://movie_db_username:movie_db_password@movie-db/movie_db_dev"},{"name":"CAST_SERVICE_HOST_URL","value":"http://cast-service-fastapiapp/api/v1/casts/"}]' \
@@ -141,6 +145,7 @@ pipeline {
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30015 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/casts/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://cast_db_username:cast_db_password@cast-db/cast_db_dev"}]' \
@@ -149,6 +154,7 @@ pipeline {
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30016 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/movies/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://movie_db_username:movie_db_password@movie-db/movie_db_dev"},{"name":"CAST_SERVICE_HOST_URL","value":"http://cast-service-fastapiapp/api/v1/casts/"}]' \
@@ -175,6 +181,7 @@ pipeline {
                     helm upgrade --install cast-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/cast-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30017 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/casts/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://cast_db_username:cast_db_password@cast-db/cast_db_dev"}]' \
@@ -183,6 +190,7 @@ pipeline {
                     helm upgrade --install movie-service charts --values=charts/values.yaml \
                       --set image.repository=$DOCKER_ID/movie-service --set image.tag=$DOCKER_TAG \
                       --set service.nodePort=30018 --set imagePullSecrets=null \
+                      --set healthCheckPath=/api/v1/movies/docs \
                       --set-json command='["uvicorn"]' \
                       --set-json args='["app.main:app","--host","0.0.0.0","--port","8000","--loop","asyncio"]' \
                       --set-json env='[{"name":"DATABASE_URI","value":"postgresql://movie_db_username:movie_db_password@movie-db/movie_db_dev"},{"name":"CAST_SERVICE_HOST_URL","value":"http://cast-service-fastapiapp/api/v1/casts/"}]' \
