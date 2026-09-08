@@ -38,13 +38,13 @@ pipeline {
             docker run -d --name cast_service_test --network test_network -p 8002:8000 \
               -e DATABASE_URI=postgresql://cast_db_username:cast_db_password@cast_db_test/cast_db_dev \
               $DOCKER_ID/cast-service:$DOCKER_TAG \
-              uvicorn app.main:app --host 0.0.0.0 --port 8000
+              uvicorn app.main:app --host 0.0.0.0 --port 8000 --loop asyncio
 
             docker run -d --name movie_service_test --network test_network -p 8001:8000 \
               -e DATABASE_URI=postgresql://movie_db_username:movie_db_password@movie_db_test/movie_db_dev \
               -e CAST_SERVICE_HOST_URL=http://cast_service_test:8000/api/v1/casts/ \
               $DOCKER_ID/movie-service:$DOCKER_TAG \
-              uvicorn app.main:app --host 0.0.0.0 --port 8000
+              uvicorn app.main:app --host 0.0.0.0 --port 8000 --loop asyncio
 
             sleep 15
 
