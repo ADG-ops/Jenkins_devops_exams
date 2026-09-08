@@ -22,6 +22,7 @@ pipeline {
             steps {
                 script {
                     sh '''
+                    docker rm -f cast_service_test movie_service_test cast_db_test movie_db_test || true
                     docker network rm test_network || true
                     docker network create test_network
 
